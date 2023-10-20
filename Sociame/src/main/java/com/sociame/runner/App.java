@@ -9,6 +9,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Main application entry. It ignites a {@link Javalin} http server which
+ * listens to a port which is set on application {@link Properties} object.
+ *
+ * @author Tasos Daris <tasos.daris@datawise.ai>
+ */
 public class App {
 
     private final static Logger logger = LogManager.getLogger(App.class);
@@ -35,6 +41,10 @@ public class App {
         Runtime.getRuntime().addShutdownHook(new ShutdownHook(app));
     }
 
+    /**
+     * Shutdown hook which will handle the graceful shutdown of the
+     * application.
+     */
     private static class ShutdownHook extends Thread {
 
         Javalin app;

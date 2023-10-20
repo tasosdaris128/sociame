@@ -1,5 +1,8 @@
 package com.sociame.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -12,6 +15,8 @@ import java.util.Properties;
  */
 public abstract class PropertyLoader {
 
+    private final static Logger logger = LogManager.getLogger(PropertyLoader.class);
+
     /**
      * Returns the values of an application.properties file.
      *
@@ -20,6 +25,8 @@ public abstract class PropertyLoader {
      * @throws IOException  In case of in.close()
      */
     public static Properties loadProperties(InputStream in) throws IOException {
+        logger.info("Loading application properties...");
+
         Properties properties = new Properties();
 
         if (in == null) {

@@ -30,13 +30,13 @@ public class App {
             throw new RuntimeException("Unable to load application properties.");
         }
 
-        int port = Integer.parseInt(properties.getProperty("APP_PORT", "5000"));
+        ApplicationContext.properties(properties);
 
-        var app = Javalin.create().start(port);
+        var app = Javalin.create().start(ApplicationContext.port());
 
         app.get("/ping", ctx -> ctx.result("pong"));
 
-        logger.info("Server listening at {}.", port);
+        logger.info("Server listening at {}.", ApplicationContext.port());
 
         Runtime.getRuntime().addShutdownHook(new ShutdownHook(app));
     }

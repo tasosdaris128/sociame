@@ -1,5 +1,6 @@
 package com.sociame.runner;
 
+import com.sociame.rest.Router;
 import com.sociame.utils.PropertyLoader;
 import io.javalin.Javalin;
 import org.apache.logging.log4j.LogManager;
@@ -34,7 +35,7 @@ public class App {
 
         var app = Javalin.create().start(ApplicationContext.port());
 
-        app.get("/ping", ctx -> ctx.result("pong"));
+        Router.registerRoutes(app);
 
         logger.info("Server listening at {}.", ApplicationContext.port());
 

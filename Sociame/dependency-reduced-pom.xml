@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.sociame.App</mainClass>
+                  <mainClass>com.sociame.runner.App</mainClass>
                 </transformer>
               </transformers>
             </configuration>

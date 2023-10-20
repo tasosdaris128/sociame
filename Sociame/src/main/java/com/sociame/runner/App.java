@@ -1,4 +1,4 @@
-package com.sociame;
+package com.sociame.runner;
 
 import com.sociame.utils.PropertyLoader;
 import io.javalin.Javalin;
